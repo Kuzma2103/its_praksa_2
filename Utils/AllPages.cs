@@ -1,4 +1,5 @@
-﻿using SeleniumExtras.PageObjects;
+﻿using AutomationFramework.Pages;
+using SeleniumExtras.PageObjects;
 using System;
 
 namespace AutomationFramework.Utils
@@ -20,5 +21,9 @@ namespace AutomationFramework.Utils
             return page;
         }
 
+        public LoginPage LoginPage => GetPages<LoginPage>();
+        public InventoryPage InventoryPage => GetPages<InventoryPage>();
+        public InventoryItemPage InventoryItemPage => GetPages<InventoryItemPage>();
+        public CartPage CartPage => GetPages<CartPage>();
     }
 }

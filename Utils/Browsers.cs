@@ -10,7 +10,7 @@ namespace AutomationFramework.Utils
     public class Browsers
     {
         private IWebDriver webDriver;
-        private string baseURL = "";
+        private string baseURL = "https://www.saucedemo.com/";
 
         /// <summary>
         /// Metoda koja pravi objekat odredjenog browsera, maximizira prozor i navigira na baseURL
