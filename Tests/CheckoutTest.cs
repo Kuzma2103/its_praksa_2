@@ -13,14 +13,14 @@ namespace AutomationFramework.Tests
                 TestData.TestData.LoginTest.password
             );
 
-            Pages.InventoryPage.ClickOnItem(TestData.TestData.AddToCart.itemName);
-            Pages.InventoryItemPage.ClickOnAddToCartButton();
-            Pages.InventoryItemPage.ClickOnCartButton();
+            // Dodavanje proizvoda u korpu
+            AddItemToCart();
         }
 
         [Test]
         public void PurchaseItem()
         {
+            // Kupovina proizvoda
             Pages.CartPage.ClickOnCheckoutButton();
             Pages.CheckoutPage.FillOutFormYourInformation(
                 TestData.TestData.Checkout.firstName,
@@ -29,11 +29,21 @@ namespace AutomationFramework.Tests
             );
             Pages.CheckoutPage.ClickFinishButton();
 
-            // Assert test
+            // Assert test - Provera poruke nakon kupovine
             Assert.AreEqual(
                 Pages.CheckoutPage.GetOrderMessage(), 
                 AppConstants.Constants.SystemMessages.orderMessage
             );        
+        }
+
+        /// <summary>
+        /// Preduslovna metoda koja dodaje proizvod u korpu
+        /// </summary>
+        private void AddItemToCart()
+        {
+            Pages.InventoryPage.ClickOnItem(TestData.TestData.AddToCart.itemName);
+            Pages.InventoryItemPage.ClickOnAddToCartButton();
+            Pages.InventoryItemPage.ClickOnCartButton();
         }
     }
 }

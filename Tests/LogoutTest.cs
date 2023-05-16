@@ -12,7 +12,6 @@ namespace AutomationFramework.Tests
                 TestData.TestData.LoginTest.username,
                 TestData.TestData.LoginTest.password
             );
-
         }
 
         [Test]

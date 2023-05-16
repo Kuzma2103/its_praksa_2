@@ -12,7 +12,6 @@ namespace AutomationFramework.Tests
                 TestData.TestData.LoginTest.username,
                 TestData.TestData.LoginTest.password
             );
-
         }
 
         [Test]
@@ -29,12 +28,12 @@ namespace AutomationFramework.Tests
             Pages.InventoryItemPage.ClickOnCartButton();
             string itemName = Pages.CartPage.GetItemName();
             Assert.AreEqual(TestData.TestData.AddToCart.itemName, itemName);
-
         }
 
         [TearDown]
         public void TearDown()
         {
+            // Brisanje proizvoda iz korpe
             Pages.CartPage.ClickOnRemoveButton();
             Assert.IsFalse(Pages.CartPage.IsCartItemDisplayed());
         }
