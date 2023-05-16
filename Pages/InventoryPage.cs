@@ -27,6 +27,7 @@ namespace AutomationFramework.Pages
         By addToCartButton = By.Id("add-to-cart-sauce-labs-backpack");
         By cartIcon = By.ClassName("shopping_cart_badge");
         By hamburgerMenu = By.Id("react-burger-menu-btn");
+        By removeButton = By.Id("remove-sauce-labs-backpack");
 
         /// <summary>
         /// Metoda koja klikne na zeljeni proizvod
@@ -69,6 +70,15 @@ namespace AutomationFramework.Pages
         {
             ClickOnElement(hamburgerMenu);
             Thread.Sleep(1000);
+        }
+
+        /// <summary>
+        /// Metoda koja klikne na dugme remove na inventory page-u
+        /// </summary>
+        public void ClickOnRemoveButton()
+        {
+            ClickOnElement(removeButton);
+            Thread.Sleep(800);
         }
 
     }
