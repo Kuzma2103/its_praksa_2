@@ -41,7 +41,7 @@ namespace AutomationFramework.Pages
         /// <returns>vraca true ako postoji u spurotnom false</returns>
         public bool IsCartItemDisplayed()
         {
-            return IsElementDisplayed("cartItem");
+            return IsElementDisplayed("class", "cart_item");
         }
 
         /// <summary>

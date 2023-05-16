@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System.Threading;
 
 namespace AutomationFramework.Pages
 {
@@ -25,6 +26,7 @@ namespace AutomationFramework.Pages
 
         By addToCartButton = By.Id("add-to-cart-sauce-labs-backpack");
         By cartIcon = By.ClassName("shopping_cart_badge");
+        By hamburgerMenu = By.Id("react-burger-menu-btn");
 
         /// <summary>
         /// Metoda koja klikne na zeljeni proizvod
@@ -59,5 +61,15 @@ namespace AutomationFramework.Pages
         {
             ClickOnAddToCartButton();
         }
+
+        /// <summary>
+        /// Metoda koja klikne na hamburger menu dugme
+        /// </summary>
+        public void ClickOnHamburgerMenu()
+        {
+            ClickOnElement(hamburgerMenu);
+            Thread.Sleep(1000);
+        }
+
     }
 }

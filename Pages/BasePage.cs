@@ -54,26 +54,38 @@ namespace AutomationFramework.Pages
             return driver.FindElement(element).Text;
         }
 
-
         /// <summary>
-        /// Metoda koja proverva vidljivost elementa na page-u
+        /// Metoda koja proverava da li je element vidljiv na stranici
         /// </summary>
-        /// <returns>vraca true ako postoji na page-u u suprotnom false</returns>
-        public bool IsElementDisplayed(string className)
+        /// <param name="attributeName">atribut iz html-a po kome se gadja lokator</param>
+        /// <param name="attributeValue">vrednost atributa</param>
+        /// <returns>Vraca true ako je element vidljiv, false ako nije</returns>
+        public bool IsElementDisplayed(string attributeName, string attributeValue)
         {
             try
             {
-                // Find the table row element
-                IWebElement cartItem = driver.FindElement(By.ClassName(className));
+                // Locator of element
+                string locator = $"//*[@{attributeName}='{attributeValue}']";
+                IWebElement element = driver.FindElement(By.XPath(locator));
 
-                // Return whether the table row is displayed or not
-                return cartItem.Displayed;
+                // Return whether the element is displayed or not
+                return element.Displayed;
             }
             catch (NoSuchElementException)
             {
-                // If the table row element is not found, return false
+                // If the element is not found, return false
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Metoda koja klikne na menu element
+        /// </summary>
+        /// <param name="menuItemId">id lokator elementa iz menija</param>
+        public void ClickOnMenuItem(string menuItemId)
+        {
+            string menuItemLocator = $"{menuItemId}";
+            driver.FindElement(By.Id(menuItemLocator)).Click();
         }
     }    
 }
