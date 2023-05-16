@@ -23,6 +23,7 @@ namespace AutomationFramework.Pages
 
         // locators
         By itemNameTitle = By.XPath("//div[@class='cart_item_label']/a/div");
+        By removeButton = By.Id("remove-sauce-labs-backpack");
 
 
         /// <summary>
@@ -32,6 +33,23 @@ namespace AutomationFramework.Pages
         public string GetItemName()
         {
             return driver.FindElement(itemNameTitle).Text;
+        }
+
+        /// <summary>
+        /// Metoda koja proverava postojanje cart item-a 
+        /// </summary>
+        /// <returns>vraca true ako postoji u spurotnom false</returns>
+        public bool IsCartItemDisplayed()
+        {
+            return IsElementDisplayed("cartItem");
+        }
+
+        /// <summary>
+        /// Metoda koja klikne na remove dugme u cart page-u
+        /// </summary>
+        public void ClickOnRemoveButton()
+        {
+            ClickOnElement(removeButton);
         }
     }
 }

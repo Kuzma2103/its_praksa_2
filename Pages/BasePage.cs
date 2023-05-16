@@ -42,7 +42,38 @@ namespace AutomationFramework.Pages
             WaitForElementToBeVisible(element);
             driver.FindElement(element).SendKeys(text);
         }
-    }
 
-    
+        /// <summary>
+        /// Metoda koja vraca text iz elementa
+        /// </summary>
+        /// <param name="element">lokator elementa</param>
+        /// <returns>Vraca tekst iz elementa</returns>
+        public string GetTextFromElement(By element)
+        {
+            WaitForElementToBeVisible(element);
+            return driver.FindElement(element).Text;
+        }
+
+
+        /// <summary>
+        /// Metoda koja proverva vidljivost elementa na page-u
+        /// </summary>
+        /// <returns>vraca true ako postoji na page-u u suprotnom false</returns>
+        public bool IsElementDisplayed(string className)
+        {
+            try
+            {
+                // Find the table row element
+                IWebElement cartItem = driver.FindElement(By.ClassName(className));
+
+                // Return whether the table row is displayed or not
+                return cartItem.Displayed;
+            }
+            catch (NoSuchElementException)
+            {
+                // If the table row element is not found, return false
+                return false;
+            }
+        }
+    }    
 }

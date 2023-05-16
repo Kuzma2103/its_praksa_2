@@ -23,6 +23,9 @@ namespace AutomationFramework.Pages
 
         // Locators
 
+        By addToCartButton = By.Id("add-to-cart-sauce-labs-backpack");
+        By cartIcon = By.ClassName("shopping_cart_badge");
+
         /// <summary>
         /// Metoda koja klikne na zeljeni proizvod
         /// </summary>
@@ -30,6 +33,31 @@ namespace AutomationFramework.Pages
         public void ClickOnItem(string itemName)
         {
             driver.FindElement(By.XPath($"//div[@class='inventory_item_name'][contains(., '{itemName}')]")).Click();
+        }
+
+        /// <summary>
+        /// Metoda koja klikne na dugme Add to cart
+        /// </summary>
+        private void ClickOnAddToCartButton()
+        {
+            ClickOnElement(addToCartButton);
+        }
+
+        /// <summary>
+        /// Metoda koja vraca text/broj iz cart ikonice
+        /// </summary>
+        /// <returns>broj iz cart ikonice tipa string</returns>
+        public string GetCartNumber()
+        {
+            return GetTextFromElement(cartIcon);
+        }
+
+        /// <summary>
+        /// Metoda koja ubacuje u korpu odredjeni proizvod
+        /// </summary>
+        public void AddItemToCart()
+        {
+            ClickOnAddToCartButton();
         }
     }
 }
