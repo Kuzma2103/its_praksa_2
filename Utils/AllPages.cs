@@ -25,5 +25,6 @@ namespace AutomationFramework.Utils
         public InventoryPage InventoryPage => GetPages<InventoryPage>();
         public InventoryItemPage InventoryItemPage => GetPages<InventoryItemPage>();
         public CartPage CartPage => GetPages<CartPage>();
+        public CheckoutPage CheckoutPage => GetPages<CheckoutPage>();
     }
 }
