@@ -24,6 +24,7 @@ namespace AutomationFramework.Pages
         // locators
         By itemNameTitle = By.XPath("//div[@class='cart_item_label']/a/div");
         By removeButton = By.Id("remove-sauce-labs-backpack");
+        By checkoutButton = By.Id("checkout");
 
 
         /// <summary>
@@ -50,6 +51,14 @@ namespace AutomationFramework.Pages
         public void ClickOnRemoveButton()
         {
             ClickOnElement(removeButton);
+        }
+
+        /// <summary>
+        /// Metoda koja klikne na dugme Checkout
+        /// </summary>
+        public void ClickOnCheckoutButton()
+        {
+            ClickOnElement(checkoutButton);
         }
     }
 }

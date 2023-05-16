@@ -12,6 +12,13 @@
         {
             public const string itemName = "Sauce Labs Backpack";
         }
+
+        public static class Checkout
+        {
+            public const string firstName = "Ronaldinho",
+                                lastName = "Gaucho",
+                                zipPostalCode = "11080";
+        }
     }
 }
 
