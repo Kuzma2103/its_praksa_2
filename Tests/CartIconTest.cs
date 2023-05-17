@@ -18,7 +18,7 @@ namespace AutomationFramework.Tests
         public void ValidateCartIconCounter()
         {
             // Add all products to the cart
-            Pages.InventoryItemPage.ClickOnAllAddToCartButtons();
+            Pages.InventoryPage.ClickOnAllAddToCartButtons();
             string cartNumber = Pages.InventoryPage.GetCartNumber(); // Broj u korpi nakon klikova na dugme add to cart
             // Remove one item from cart
             Pages.InventoryPage.ClickOnRemoveButton();

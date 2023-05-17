@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace AutomationFramework.Pages
@@ -79,6 +80,19 @@ namespace AutomationFramework.Pages
         {
             ClickOnElement(removeButton);
             Thread.Sleep(800);
+        }
+
+        /// <summary>
+        /// Metoda koja klikne na sve dugmice Add to cart u inventory page-u
+        /// </summary>
+        public void ClickOnAllAddToCartButtons()
+        {
+            IReadOnlyCollection<IWebElement> buttons = driver.FindElements(By.XPath("//button[contains(., 'Add to cart')]"));
+
+            foreach (IWebElement button in buttons)
+            {
+                button.Click();
+            }
         }
 
     }
